@@ -10,21 +10,22 @@ namespace AltaAlumnos
     {
         private long clave;
         private string nombre;
-        private string estatus;
+        private bool estatus;
 
-        public Carrera(long clave, string nombre, string estatus)
+        public Carrera(long clave, string nombre, bool estatus)
         {
             this.clave = clave;
             this.nombre = nombre;
             this.estatus = estatus;
         }
 
+        #region Sobreescritura
         /// <summary>
-        /// Método Equals sobreescrito, determina si un objeto es equivalente
-        /// a objeto de tipo Carrera
+        /// Método Equals sobreescrito, determina si un objeto dado es equivalente
+        /// a objeto de tipo Carrera.
         /// </summary>
-        /// <param name="obj">Objeto a comparar</param>
-        /// <returns>Retorna true si el objeto dado es equivalente</returns>
+        /// <param name="obj">Objeto a comparar.</param>
+        /// <returns>Retorna true si el objeto dado es equivalente.</returns>
         public override bool Equals(object obj)
         {
             if(obj.GetType() == typeof(Carrera))
@@ -45,18 +46,35 @@ namespace AltaAlumnos
             }
         }
 
+        /// <summary>
+        /// Método sobreescrito ToString()
+        /// </summary>
+        /// <returns>Nombre de Carrera.</returns>
+        public override string ToString()
+        {
+            return nombre;
+        }
+        #endregion
+
+        #region Propiedades
+        /// <summary>
+        /// Propiedad que obtiene clave.
+        /// </summary>
         public long pClave => clave;
 
+        /// <summary>
+        /// Propiedad que obtiene nombre.
+        /// </summary>
         public string pNombre => nombre;
 
-        public string pEstatus
+        /// <summary>
+        /// Propiedad que obtiene o establece estatus.
+        /// </summary>
+        public bool pEstatus
         {
             get => estatus;
-
-            set
-            {
-                estatus = value;
-            }
+            set => estatus = value;
         }
+        #endregion
     }
 }

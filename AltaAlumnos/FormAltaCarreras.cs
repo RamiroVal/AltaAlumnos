@@ -13,29 +13,37 @@ namespace AltaAlumnos
     public partial class FormAltaCarreras : Form
     {
         private AdministraCarreras adCarreras;
-        public FormAltaCarreras()
+        public FormAltaCarreras(AdministraCarreras carreras)
         {
             InitializeComponent();
-            adCarreras = new AdministraCarreras();
-        }
-
-        private void rbtActiva_CheckedChanged(object sender, EventArgs e)
-        {
-
+            adCarreras = carreras;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            long clave = Convert.ToInt64(txtClave.Text);
-            string nombre = txtNombre.Text;
-            string estatus = "Activa";
+            long clave;
+            string nombre;
+            bool estatus;
+            try
+            {
+                clave = Convert.ToInt64(txtClave.Text);
+                nombre = txtNombre.Text;
+                estatus = rbtActiva.Checked;
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+            
+            
+
             if(adCarreras.AgregaCarrera(clave, nombre, estatus))
             {
                 MessageBox.Show($"La carrera {nombre}, se ha agregado correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show($"La carrera {nombre}, ya ha sido agregada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"La carrera {nombre} o la clave {clave}, ya han sido agregadas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }

@@ -16,8 +16,8 @@ namespace AltaAlumnos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new formPrincipal());
-            Application.Run(new FormAltaCarreras());
+            Application.Run(new formPrincipal());
+            //Application.Run(new FormAltaCarreras());
         }
     }
 }

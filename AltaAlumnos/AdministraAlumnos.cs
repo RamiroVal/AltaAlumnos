@@ -11,6 +11,15 @@ namespace AltaAlumnos
         private Dictionary<long, Alumno> dicAlumnos = new Dictionary<long, Alumno>();
         private static long numControl = 1;
 
+        /// <summary>
+        /// Método que guarda los objetos ded tipo Alumno en un Dictionary.
+        /// </summary>
+        /// <param name="numControl">Número de control del alumno.</param>
+        /// <param name="nombre">Nombre del alumno.</param>
+        /// <param name="domicilio">Dommicilio del alumno.</param>
+        /// <param name="carrera">Carrera del alumno.</param>
+        /// <param name="edad">Edad del alumno.</param>
+        /// <returns>Retorna true si el alumno se guardó correctamente.</returns>
          public bool AgregaAlumno(long numControl, string nombre, string domicilio, string carrera, int edad)
         {
             try
@@ -25,6 +34,10 @@ namespace AltaAlumnos
             }
         }
 
+        /// <summary>
+        /// Método que calcula el número de control.
+        /// </summary>
+        /// <returns>Retorna el número de control en string.</returns>
         public string CalculaNumControl()
         {
             numControl++;
@@ -33,6 +46,12 @@ namespace AltaAlumnos
             return numeroControl;
         }
 
+        #region Datos de alumnos
+        /// <summary>
+        /// Método que obtiene todas las claves de los alumnos
+        /// agregados hasta el momento.
+        /// </summary>
+        /// <returns>Retorna un arreglo long.</returns>
         private long[] ClavesAlumnos()
         {
             long[] claves = new long[dicAlumnos.Count];
@@ -45,6 +64,11 @@ namespace AltaAlumnos
             return claves;
         }
 
+        /// <summary>
+        /// Método que obtiene todos los datos de los alumnos
+        /// agregados hasta el momento.
+        /// </summary>
+        /// <returns>Retorna una matriz de string.</returns>
         public string[,] ConsultaAlumnos()
         {
             long[] claves = ClavesAlumnos();
@@ -60,5 +84,6 @@ namespace AltaAlumnos
             }
             return alumnos;
         }
+        #endregion
     }
 }
