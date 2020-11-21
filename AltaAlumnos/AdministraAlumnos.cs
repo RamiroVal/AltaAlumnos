@@ -8,9 +8,18 @@ namespace AltaAlumnos
 {
     public class AdministraAlumnos
     {
-        private Dictionary<long, Alumno> dicAlumnos = new Dictionary<long, Alumno>();
-        private static long numControl = 1;
+        private Dictionary<long, Alumno> dicAlumnos = new Dictionary<long, Alumno>(); // Directori para guardar Alumno
+        private static long numControl = 1; // Variable para el cálculo del número de control
 
+        /// <summary>
+        /// Método para guardar los alumnos
+        /// </summary>
+        /// <param name="numControl">Número de Control</param>
+        /// <param name="nombre">Nombre del alumno</param>
+        /// <param name="domicilio">Domicilio del alumno</param>
+        /// <param name="carrera">Carrera del alumno</param>
+        /// <param name="edad">Edad del alumno</param>
+        /// <returns></returns>
          public bool AgregaAlumno(long numControl, string nombre, string domicilio, string carrera, int edad)
         {
             try
@@ -25,6 +34,10 @@ namespace AltaAlumnos
             }
         }
 
+        /// <summary>
+        /// Método para calcular el número de control.
+        /// </summary>
+        /// <returns>Número de control</returns>
         public string CalculaNumControl()
         {
             numControl++;
@@ -33,6 +46,11 @@ namespace AltaAlumnos
             return numeroControl;
         }
 
+        #region Consultas
+        /// <summary>
+        /// Método que devuelve todas las claves de los alumnos dados de alta.
+        /// </summary>
+        /// <returns>Arreglo de las claves de alumnos.</returns>
         private long[] ClavesAlumnos()
         {
             long[] claves = new long[dicAlumnos.Count];
@@ -45,6 +63,10 @@ namespace AltaAlumnos
             return claves;
         }
 
+        /// <summary>
+        /// Método que guarda los alumnos que ha sido dados de alta en una matriz.
+        /// </summary>
+        /// <returns>Matriz de string con los datos de los alumnos.</returns>
         public string[,] ConsultaAlumnos()
         {
             long[] claves = ClavesAlumnos();
@@ -60,5 +82,6 @@ namespace AltaAlumnos
             }
             return alumnos;
         }
+        #endregion
     }
 }

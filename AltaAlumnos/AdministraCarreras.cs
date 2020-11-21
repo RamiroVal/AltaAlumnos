@@ -41,7 +41,7 @@ namespace AltaAlumnos
         public Carrera[] CarrerasActivas()
         {
             int activas = 0;
-            foreach(Carrera item in lCarreras)
+            foreach (Carrera item in lCarreras)
             {
                 if (item.pEstatus)
                 {

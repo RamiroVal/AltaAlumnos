@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.lblNoControl = new System.Windows.Forms.Label();
             this.txtNoControl = new System.Windows.Forms.TextBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmbCarreras = new System.Windows.Forms.ComboBox();
             this.lblCarrera = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -43,14 +42,15 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numEdad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNoControl
             // 
             this.lblNoControl.AutoSize = true;
-            this.lblNoControl.Location = new System.Drawing.Point(31, 41);
+            this.lblNoControl.Location = new System.Drawing.Point(25, 41);
             this.lblNoControl.Name = "lblNoControl";
             this.lblNoControl.Size = new System.Drawing.Size(79, 17);
             this.lblNoControl.TabIndex = 0;
@@ -59,24 +59,18 @@
             // txtNoControl
             // 
             this.txtNoControl.BackColor = System.Drawing.Color.White;
-            this.txtNoControl.Location = new System.Drawing.Point(136, 38);
+            this.txtNoControl.Location = new System.Drawing.Point(130, 38);
             this.txtNoControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNoControl.Name = "txtNoControl";
             this.txtNoControl.ReadOnly = true;
             this.txtNoControl.Size = new System.Drawing.Size(100, 22);
             this.txtNoControl.TabIndex = 10;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // cmbCarreras
             // 
             this.cmbCarreras.BackColor = System.Drawing.Color.White;
             this.cmbCarreras.FormattingEnabled = true;
-            this.cmbCarreras.Location = new System.Drawing.Point(393, 38);
+            this.cmbCarreras.Location = new System.Drawing.Point(387, 38);
             this.cmbCarreras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbCarreras.Name = "cmbCarreras";
             this.cmbCarreras.Size = new System.Drawing.Size(121, 24);
@@ -86,7 +80,7 @@
             // lblCarrera
             // 
             this.lblCarrera.AutoSize = true;
-            this.lblCarrera.Location = new System.Drawing.Point(315, 41);
+            this.lblCarrera.Location = new System.Drawing.Point(309, 41);
             this.lblCarrera.Name = "lblCarrera";
             this.lblCarrera.Size = new System.Drawing.Size(56, 17);
             this.lblCarrera.TabIndex = 4;
@@ -95,7 +89,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(31, 112);
+            this.lblNombre.Location = new System.Drawing.Point(25, 112);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(58, 17);
             this.lblNombre.TabIndex = 5;
@@ -103,24 +97,28 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(136, 110);
+            this.txtNombre.Location = new System.Drawing.Point(130, 110);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(377, 22);
             this.txtNombre.TabIndex = 1;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
+            this.txtNombre.Validated += new System.EventHandler(this.txtNombre_Validated);
             // 
             // txtDomicilio
             // 
-            this.txtDomicilio.Location = new System.Drawing.Point(136, 151);
+            this.txtDomicilio.Location = new System.Drawing.Point(130, 151);
             this.txtDomicilio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDomicilio.Name = "txtDomicilio";
             this.txtDomicilio.Size = new System.Drawing.Size(377, 22);
             this.txtDomicilio.TabIndex = 2;
+            this.txtDomicilio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDomicilio_KeyPress);
+            this.txtDomicilio.Validated += new System.EventHandler(this.txtDomicilio_Validated);
             // 
             // lblDomicilio
             // 
             this.lblDomicilio.AutoSize = true;
-            this.lblDomicilio.Location = new System.Drawing.Point(31, 154);
+            this.lblDomicilio.Location = new System.Drawing.Point(25, 154);
             this.lblDomicilio.Name = "lblDomicilio";
             this.lblDomicilio.Size = new System.Drawing.Size(64, 17);
             this.lblDomicilio.TabIndex = 8;
@@ -129,7 +127,7 @@
             // lblEdad
             // 
             this.lblEdad.AutoSize = true;
-            this.lblEdad.Location = new System.Drawing.Point(31, 203);
+            this.lblEdad.Location = new System.Drawing.Point(25, 203);
             this.lblEdad.Name = "lblEdad";
             this.lblEdad.Size = new System.Drawing.Size(41, 17);
             this.lblEdad.TabIndex = 9;
@@ -137,7 +135,7 @@
             // 
             // numEdad
             // 
-            this.numEdad.Location = new System.Drawing.Point(136, 201);
+            this.numEdad.Location = new System.Drawing.Point(130, 201);
             this.numEdad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numEdad.Maximum = new decimal(new int[] {
             50,
@@ -161,7 +159,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(69, 244);
+            this.btnGuardar.Location = new System.Drawing.Point(63, 244);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(99, 34);
@@ -172,7 +170,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(221, 244);
+            this.btnLimpiar.Location = new System.Drawing.Point(215, 244);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(99, 34);
@@ -183,7 +181,7 @@
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(373, 244);
+            this.btnConsultar.Location = new System.Drawing.Point(367, 244);
             this.btnConsultar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(99, 34);
@@ -192,23 +190,17 @@
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
-            // label1
+            // errorProvider1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(64, 76);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "label1";
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider1.ContainerControl = this;
             // 
             // formPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(533, 306);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(542, 306);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnGuardar);
@@ -228,6 +220,7 @@
             this.Text = "Agrega Alumno";
             this.Load += new System.EventHandler(this.formPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numEdad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,7 +230,6 @@
 
         private System.Windows.Forms.Label lblNoControl;
         private System.Windows.Forms.TextBox txtNoControl;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ComboBox cmbCarreras;
         private System.Windows.Forms.Label lblCarrera;
         private System.Windows.Forms.Label lblNombre;
@@ -249,7 +241,7 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnConsultar;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 

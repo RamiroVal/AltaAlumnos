@@ -38,14 +38,28 @@ namespace AltaAlumnos
 
         private void agregarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            formPrincipal agregaAlumnos = new formPrincipal(alumnos, carreras);
-            agregaAlumnos.ShowDialog();
+            if (carreras.CarrerasActivas().Length == 0)
+            {
+                MessageBox.Show("No se han agregado materias, agregue una para continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                formPrincipal agregaAlumnos = new formPrincipal(alumnos, carreras);
+                agregaAlumnos.ShowDialog();
+            }
         }
 
         private void todoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FormConsultaAlumnos consultaAlumnos = new FormConsultaAlumnos(alumnos);
-            consultaAlumnos.ShowDialog();
+            if(alumnos.ConsultaAlumnos().GetLength(0) == 0)
+            {
+                MessageBox.Show("No se han agregado Alumnos.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                FormConsultaAlumnos consultaAlumnos = new FormConsultaAlumnos(alumnos);
+                consultaAlumnos.ShowDialog();
+            }
         }
     }
 }
