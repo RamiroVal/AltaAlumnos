@@ -45,7 +45,7 @@ namespace AltaAlumnos
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            if (alumnos.ConsultaAlumnos().GetLength(0) == 0)
+            if (!alumnos.pHayAlumnos)
             {
                 MessageBox.Show("No se han agregado Alumnos.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -66,6 +66,10 @@ namespace AltaAlumnos
             if (Validaciones.ValidaBlanco(nombre))
             {
                 errorProvider1.SetError(txtNombre, "Agregue nombre.");
+            }
+            else
+            {
+                errorProvider1.SetError(txtDomicilio, "");
             }
         }
 

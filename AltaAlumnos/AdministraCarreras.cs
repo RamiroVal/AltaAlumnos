@@ -37,18 +37,10 @@ namespace AltaAlumnos
         /// <summary>
         /// Método que Determina cuales carreras tienen el estatus activo.
         /// </summary>
-        /// <returns>Arreglo de Carrera con estatus activo</returns>
+        /// <returns>Arreglo de Carrera con estatus activo.</returns>
         public Carrera[] CarrerasActivas()
         {
-            int activas = 0;
-            foreach (Carrera item in lCarreras)
-            {
-                if (item.pEstatus)
-                {
-                    activas++;
-                }
-            }
-
+            int activas = TotalActivas();
             Carrera[] carreras = new Carrera[activas];
             int i = 0;
             foreach(Carrera item in lCarreras)
@@ -61,5 +53,76 @@ namespace AltaAlumnos
             }
             return carreras;
         }
+
+        /// <summary>
+        /// Método que determina el total de carreras activas.
+        /// </summary>
+        /// <returns>Total de carreras activas.</returns>
+        public int TotalActivas()
+        {
+            int activas = 0;
+            foreach (Carrera item in lCarreras)
+            {
+                if (item.pEstatus)
+                {
+                    activas++;
+                }
+            }
+            return activas;
+        }
+
+        /// <summary>
+        /// Método que devuelve todas las carreras agregadas hasta el momento.
+        /// </summary>
+        /// <returns>Arreglo de Carrera con todas las carreras agregadas hasta el momento.</returns>
+        public Carrera[] TotalCarreras()
+        {
+            Carrera[] carreras = new Carrera[lCarreras.Count];
+            int i = 0;
+            foreach (Carrera item in lCarreras)
+            {
+                carreras[i] = item;
+                i++;
+            }
+            return carreras;
+        }
+
+        #region Propiedades
+        /// <summary>
+        /// Propiedad que devuelve true en caso de haber carreras activas.
+        /// </summary>
+        public bool pHayActivas
+        {
+            get
+            {
+                if (TotalActivas() == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Propiedad que devuelve true en caso de haber carreras añadidas.
+        /// </summary>
+        public bool pHayCarreras
+        {
+            get
+            {
+                if (lCarreras.Count == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
+        #endregion
     }
 }

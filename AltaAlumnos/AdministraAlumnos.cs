@@ -83,5 +83,23 @@ namespace AltaAlumnos
             return alumnos;
         }
         #endregion
+
+        /// <summary>
+        /// Propiedad que devuelve true en caso de haber alumnos agregados.
+        /// </summary>
+        public bool pHayAlumnos
+        {
+            get
+            {
+                if (dicAlumnos.Count == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
     }
 }

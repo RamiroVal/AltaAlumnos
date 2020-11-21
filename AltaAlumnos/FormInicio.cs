@@ -38,9 +38,9 @@ namespace AltaAlumnos
 
         private void agregarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (carreras.CarrerasActivas().Length == 0)
+            if (!carreras.pHayActivas)
             {
-                MessageBox.Show("No se han agregado materias, agregue una para continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No hay materias activas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -51,7 +51,7 @@ namespace AltaAlumnos
 
         private void todoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if(alumnos.ConsultaAlumnos().GetLength(0) == 0)
+            if(!alumnos.pHayAlumnos)
             {
                 MessageBox.Show("No se han agregado Alumnos.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -59,6 +59,19 @@ namespace AltaAlumnos
             {
                 FormConsultaAlumnos consultaAlumnos = new FormConsultaAlumnos(alumnos);
                 consultaAlumnos.ShowDialog();
+            }
+        }
+
+        private void todoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (carreras.pHayCarreras)
+            {
+                FormConsultaCarreras consulta = new FormConsultaCarreras(carreras);
+                consulta.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No se han agregado Materias.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
