@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AltaAlumnos
 {
-    class Carrera
+    public class Carrera
     {
         private long clave;
         private string nombre;
@@ -19,13 +19,13 @@ namespace AltaAlumnos
             this.estatus = estatus;
         }
 
-        #region Sobreescritura
+        #region Métodos sobreescritos
         /// <summary>
-        /// Método Equals sobreescrito, determina si un objeto dado es equivalente
-        /// a objeto de tipo Carrera.
+        /// Método Equals sobreescrito, determina si un objeto es equivalente
+        /// a objeto de tipo Carrera
         /// </summary>
-        /// <param name="obj">Objeto a comparar.</param>
-        /// <returns>Retorna true si el objeto dado es equivalente.</returns>
+        /// <param name="obj">Objeto a comparar</param>
+        /// <returns>Retorna true si el objeto dado es equivalente</returns>
         public override bool Equals(object obj)
         {
             if(obj.GetType() == typeof(Carrera))
@@ -49,7 +49,7 @@ namespace AltaAlumnos
         /// <summary>
         /// Método sobreescrito ToString()
         /// </summary>
-        /// <returns>Nombre de Carrera.</returns>
+        /// <returns>Nombre de la carrera</returns>
         public override string ToString()
         {
             return nombre;

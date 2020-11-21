@@ -10,13 +10,17 @@ using System.Windows.Forms;
 
 namespace AltaAlumnos
 {
-    public partial class FormPrincipal : Form
+    public partial class FormInicio : Form
     {
         private AdministraAlumnos alumnos;
         private AdministraCarreras carreras;
-        public FormPrincipal()
+        public FormInicio()
         {
             InitializeComponent();
+        }
+
+        private void FormInicio_Load(object sender, EventArgs e)
+        {
             alumnos = new AdministraAlumnos();
             carreras = new AdministraCarreras();
         }
@@ -28,7 +32,20 @@ namespace AltaAlumnos
 
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormAltaCarreras formCarreras = new FormAltaCarreras(carreras);
+            FormAltaCarreras altaCarreras = new FormAltaCarreras(carreras);
+            altaCarreras.ShowDialog();
+        }
+
+        private void agregarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            formPrincipal agregaAlumnos = new formPrincipal(alumnos, carreras);
+            agregaAlumnos.ShowDialog();
+        }
+
+        private void todoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FormConsultaAlumnos consultaAlumnos = new FormConsultaAlumnos(alumnos);
+            consultaAlumnos.ShowDialog();
         }
     }
 }

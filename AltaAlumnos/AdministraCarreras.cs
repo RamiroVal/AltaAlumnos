@@ -7,19 +7,20 @@ using System.Threading.Tasks;
 namespace AltaAlumnos
 {
     /// <summary>
-    /// Clase para la administración de los objetos de tipo Carrera.
+    /// Clase para la administración de los objetos
+    /// de tipo Carrera
     /// </summary>
     public class AdministraCarreras
     {
         private List<Carrera> lCarreras = new List<Carrera>();
 
         /// <summary>
-        /// Método que guarda las carreras dadas de alta.
+        /// Método que guarda las carreras dadas de alta
         /// </summary>
-        /// <param name="clave">Clave de Carrera.</param>
-        /// <param name="nombre">Nombre de Carrera.</param>
-        /// <param name="estatus">Estatus de la Carrera.</param>
-        /// <returns>Retorna true si se guardó la carrera, false si la carrera fue repetida.</returns>
+        /// <param name="clave">Clave de Carrera</param>
+        /// <param name="nombre">Nombre de Carrera</param>
+        /// <param name="estatus">Estatus de la Carrera</param>
+        /// <returns></returns>
         public bool AgregaCarrera(long clave, string nombre, bool estatus)
         {
             Carrera c = new Carrera(clave, nombre, estatus);
@@ -34,13 +35,13 @@ namespace AltaAlumnos
         }
 
         /// <summary>
-        /// Determina las carreras que están activas.
+        /// Método que Determina cuales carreras tienen el estatus activo.
         /// </summary>
-        /// <returns>Arreglo de Carrera con estatus activa</returns>
+        /// <returns>Arreglo de Carrera con estatus activo</returns>
         public Carrera[] CarrerasActivas()
         {
             int activas = 0;
-            foreach (Carrera item in lCarreras)
+            foreach(Carrera item in lCarreras)
             {
                 if (item.pEstatus)
                 {

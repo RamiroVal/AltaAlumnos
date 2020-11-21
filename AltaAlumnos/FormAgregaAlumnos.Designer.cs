@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.lblNoControl = new System.Windows.Forms.Label();
             this.txtNoControl = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmbCarreras = new System.Windows.Forms.ComboBox();
             this.lblCarrera = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -42,9 +43,8 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
-            this.errorP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numEdad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorP)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNoControl
@@ -65,6 +65,12 @@
             this.txtNoControl.ReadOnly = true;
             this.txtNoControl.Size = new System.Drawing.Size(100, 22);
             this.txtNoControl.TabIndex = 10;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // cmbCarreras
             // 
@@ -102,7 +108,6 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(377, 22);
             this.txtNombre.TabIndex = 1;
-            this.txtNombre.Validated += new System.EventHandler(this.txtNombre_Validated);
             // 
             // txtDomicilio
             // 
@@ -111,7 +116,6 @@
             this.txtDomicilio.Name = "txtDomicilio";
             this.txtDomicilio.Size = new System.Drawing.Size(377, 22);
             this.txtDomicilio.TabIndex = 2;
-            this.txtDomicilio.TextChanged += new System.EventHandler(this.txtDomicilio_TextChanged);
             // 
             // lblDomicilio
             // 
@@ -188,10 +192,15 @@
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
-            // errorP
+            // label1
             // 
-            this.errorP.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errorP.ContainerControl = this;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(64, 76);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "label1";
             // 
             // formPrincipal
             // 
@@ -199,6 +208,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(533, 306);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnGuardar);
@@ -218,7 +228,6 @@
             this.Text = "Agrega Alumno";
             this.Load += new System.EventHandler(this.formPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numEdad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,6 +237,7 @@
 
         private System.Windows.Forms.Label lblNoControl;
         private System.Windows.Forms.TextBox txtNoControl;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ComboBox cmbCarreras;
         private System.Windows.Forms.Label lblCarrera;
         private System.Windows.Forms.Label lblNombre;
@@ -239,7 +249,7 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnConsultar;
-        private System.Windows.Forms.ErrorProvider errorP;
+        private System.Windows.Forms.Label label1;
     }
 }
 

@@ -19,31 +19,23 @@ namespace AltaAlumnos
             adCarreras = carreras;
         }
 
+        private void rbtActiva_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            long clave;
-            string nombre;
-            bool estatus;
-            try
-            {
-                clave = Convert.ToInt64(txtClave.Text);
-                nombre = txtNombre.Text;
-                estatus = rbtActiva.Checked;
-            }
-            catch (Exception ex)
-            {
-                return;
-            }
-            
-            
-
+            long clave = Convert.ToInt64(txtClave.Text);
+            string nombre = txtNombre.Text.ToUpper();
+            bool estatus = rbtActiva.Checked;
             if(adCarreras.AgregaCarrera(clave, nombre, estatus))
             {
                 MessageBox.Show($"La carrera {nombre}, se ha agregado correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show($"La carrera {nombre} o la clave {clave}, ya han sido agregadas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"La clave {clave} o la carrera {nombre}, ya ha sido agregada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }

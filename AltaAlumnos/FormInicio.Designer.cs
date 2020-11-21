@@ -1,6 +1,6 @@
 ﻿namespace AltaAlumnos
 {
-    partial class FormPrincipal
+    partial class FormInicio
     {
         /// <summary>
         /// Required designer variable.
@@ -33,12 +33,12 @@
             this.alumnosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.individualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.todoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.individualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.todoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.individualToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.todoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -92,6 +92,18 @@
             this.consultarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.consultarToolStripMenuItem.Text = "Consultar";
             // 
+            // individualToolStripMenuItem
+            // 
+            this.individualToolStripMenuItem.Name = "individualToolStripMenuItem";
+            this.individualToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.individualToolStripMenuItem.Text = "Individual";
+            // 
+            // todoToolStripMenuItem
+            // 
+            this.todoToolStripMenuItem.Name = "todoToolStripMenuItem";
+            this.todoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.todoToolStripMenuItem.Text = "Todo";
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -109,6 +121,7 @@
             this.agregarToolStripMenuItem1.Name = "agregarToolStripMenuItem1";
             this.agregarToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.agregarToolStripMenuItem1.Text = "Agregar";
+            this.agregarToolStripMenuItem1.Click += new System.EventHandler(this.agregarToolStripMenuItem1_Click);
             // 
             // consultarToolStripMenuItem1
             // 
@@ -118,18 +131,6 @@
             this.consultarToolStripMenuItem1.Name = "consultarToolStripMenuItem1";
             this.consultarToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.consultarToolStripMenuItem1.Text = "Consultar";
-            // 
-            // individualToolStripMenuItem
-            // 
-            this.individualToolStripMenuItem.Name = "individualToolStripMenuItem";
-            this.individualToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.individualToolStripMenuItem.Text = "Individual";
-            // 
-            // todoToolStripMenuItem
-            // 
-            this.todoToolStripMenuItem.Name = "todoToolStripMenuItem";
-            this.todoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.todoToolStripMenuItem.Text = "Todo";
             // 
             // individualToolStripMenuItem1
             // 
@@ -142,16 +143,18 @@
             this.todoToolStripMenuItem1.Name = "todoToolStripMenuItem1";
             this.todoToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.todoToolStripMenuItem1.Text = "Todo";
+            this.todoToolStripMenuItem1.Click += new System.EventHandler(this.todoToolStripMenuItem1_Click);
             // 
-            // FormPrincipal
+            // FormInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "FormPrincipal";
-            this.Text = "FormPrincipal";
+            this.Name = "FormInicio";
+            this.Text = "FormInicio";
+            this.Load += new System.EventHandler(this.FormInicio_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
