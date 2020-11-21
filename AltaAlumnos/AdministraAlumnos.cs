@@ -20,7 +20,7 @@ namespace AltaAlumnos
         /// <param name="carrera">Carrera del alumno</param>
         /// <param name="edad">Edad del alumno</param>
         /// <returns></returns>
-         public bool AgregaAlumno(long numControl, string nombre, string domicilio, string carrera, int edad)
+         public bool AgregaAlumno(long numControl, string nombre, string domicilio, long carrera, int edad)
         {
             try
             {
@@ -67,7 +67,7 @@ namespace AltaAlumnos
         /// Método que guarda los alumnos que ha sido dados de alta en una matriz.
         /// </summary>
         /// <returns>Matriz de string con los datos de los alumnos.</returns>
-        public string[,] ConsultaAlumnos()
+        public string[,] ConsultaAlumnos(AdministraCarreras carr)
         {
             long[] claves = ClavesAlumnos();
             string[,] alumnos = new string[claves.Length, 5];
@@ -76,7 +76,7 @@ namespace AltaAlumnos
                 Alumno a = dicAlumnos[claves[i]];
                 alumnos[i, 0] = claves[i].ToString();
                 alumnos[i, 1] = a.pNombre;
-                alumnos[i, 2] = a.pCarrera;
+                alumnos[i, 2] = carr.NombreCarrera(a.pCarrera);
                 alumnos[i, 3] = a.pDomicilio;
                 alumnos[i, 4] = a.pEdad.ToString();
             }

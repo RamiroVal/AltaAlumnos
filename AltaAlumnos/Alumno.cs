@@ -10,10 +10,10 @@ namespace AltaAlumnos
     {
         private string nombre;
         private string domicilio;
-        private string carrera;
+        private long carrera;
         private int edad;
 
-        public Alumno(string nombre, string domicilio, string carrera, int edad)
+        public Alumno(string nombre, string domicilio, long carrera, int edad)
         {
             this.nombre = nombre;
             this.domicilio = domicilio;
@@ -33,7 +33,7 @@ namespace AltaAlumnos
         /// <summary>
         /// Propiedad que obtiene o asigna carrera.
         /// </summary>
-        public string pCarrera
+        public long pCarrera
         {
             get => carrera;
             set => carrera = value;

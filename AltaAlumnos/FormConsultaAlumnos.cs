@@ -13,15 +13,17 @@ namespace AltaAlumnos
     public partial class FormConsultaAlumnos : Form
     {
         private AdministraAlumnos adAlumnos;
-        public FormConsultaAlumnos(AdministraAlumnos ad)
+        private AdministraCarreras carreras;
+        public FormConsultaAlumnos(AdministraAlumnos ad, AdministraCarreras c)
         {
             InitializeComponent();
             adAlumnos = ad;
+            carreras = c;
         }
 
         private void frmConsultaAlumnos_Load(object sender, EventArgs e)
         {
-            string[,] alumnos = adAlumnos.ConsultaAlumnos();
+            string[,] alumnos = adAlumnos.ConsultaAlumnos(carreras);
             
             for(int i = 0; i < alumnos.GetLength(0); i++)
             {

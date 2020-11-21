@@ -72,6 +72,40 @@ namespace AltaAlumnos
         }
 
         /// <summary>
+        /// Método que devuelve una carrera determinada por su clave.
+        /// </summary>
+        /// <param name="clave">Clave de la carrera.</param>
+        /// <returns>Carrera determinada.</returns>
+        public Carrera CarreraPorClave(long clave)
+        {
+            foreach(Carrera a in lCarreras)
+            {
+                if (a.pClave == clave)
+                {
+                    return a;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Método que devuelve el nombre de una carrera por su clave
+        /// </summary>
+        /// <param name="clave">Clave de la carrera</param>
+        /// <returns>Nomre de la carrera</returns>
+        public string NombreCarrera(long clave)
+        {
+            foreach (Carrera a in lCarreras)
+            {
+                if (a.pClave == clave)
+                {
+                    return a.pNombre;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
         /// Método que devuelve todas las carreras agregadas hasta el momento.
         /// </summary>
         /// <returns>Arreglo de Carrera con todas las carreras agregadas hasta el momento.</returns>

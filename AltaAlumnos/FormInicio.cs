@@ -57,7 +57,7 @@ namespace AltaAlumnos
             }
             else
             {
-                FormConsultaAlumnos consultaAlumnos = new FormConsultaAlumnos(alumnos);
+                FormConsultaAlumnos consultaAlumnos = new FormConsultaAlumnos(alumnos, carreras);
                 consultaAlumnos.ShowDialog();
             }
         }

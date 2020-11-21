@@ -53,7 +53,7 @@ namespace AltaAlumnos
             {
                 errorProvider1.SetError(txtNombre, "");
                 errorProvider1.SetError(txtDomicilio, "");
-                FormConsultaAlumnos consultaAlumnos = new FormConsultaAlumnos(alumnos);
+                FormConsultaAlumnos consultaAlumnos = new FormConsultaAlumnos(alumnos, carreras);
                 consultaAlumnos.ShowDialog();
             }
         }
@@ -142,7 +142,8 @@ namespace AltaAlumnos
         {
             long numControl = Convert.ToInt64(txtNoControl.Text);
             string nombre = txtNombre.Text.ToUpper();
-            string carrera = cmbCarreras.SelectedItem.ToString();
+            Carrera a = cmbCarreras.SelectedItem as Carrera;
+            long carrera = a.pClave;
             int edad = Convert.ToInt32(numEdad.Value);
             string domicilio = txtDomicilio.Text.ToUpper();
 
