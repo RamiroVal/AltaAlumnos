@@ -21,48 +21,39 @@ namespace AltaAlumnos
             this.edad = edad;
         }
 
+        /// <summary>
+        /// Propiedad que obtiene o asigna domicilio.
+        /// </summary>
         public string pDomicilio
         {
-            get
-            {
-                return domicilio;
-            }
-            set
-            {
-                domicilio = value;
-            }
+            get => domicilio;
+            set => domicilio = value;
         }
 
+        /// <summary>
+        /// Propiedad que obtiene o asigna carrera.
+        /// </summary>
         public string pCarrera
         {
-            get
-            {
-                return carrera;
-            }
-            set
-            {
-                carrera = value;
-            }
+            get => carrera;
+            set => carrera = value;
         }
 
+        /// <summary>
+        /// Propiedad que obtiene o asigna edad.
+        /// </summary>
         public int pEdad
         {
-            get
-            {
-                return edad;
-            }
-            set
-            {
-                edad = value;
-            }
+            get => edad;
+            set => edad = value;
         }
 
+        /// <summary>
+        /// Propiedad que obtiene nombre.
+        /// </summary>
         public string pNombre
         {
-            get
-            {
-                return nombre;
-            }
+            get => nombre;
         }
     }
 }

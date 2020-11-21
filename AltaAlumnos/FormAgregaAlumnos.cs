@@ -23,31 +23,128 @@ namespace AltaAlumnos
             this.alumnos = alumnos;
             this.carreras = carreras;
         }
+        
+        private void formPrincipal_Load(object sender, EventArgs e)
+        {
+            txtNoControl.Text = alumnos.CalculaNumControl();
+            Carrera[] carreras = this.carreras.CarrerasActivas();
+            cmbCarreras.Items.AddRange(carreras);
+            cmbCarreras.SelectedIndex = 0;
+        }
 
+        #region Eventos Click
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
         }
 
-        private void Limpiar()
-        {
-            txtNombre.Text = "";
-            txtDomicilio.Text = "";
-            numEdad.Value = 16;
-            cmbCarreras.SelectedIndex = 0;
-        }
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            long numControl = Convert.ToInt64(txtNoControl.Text);
+            Guardar();
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            if (alumnos.ConsultaAlumnos().GetLength(0) == 0)
+            {
+                MessageBox.Show("No se han agregado Alumnos.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                errorProvider1.SetError(txtNombre, "");
+                errorProvider1.SetError(txtDomicilio, "");
+                FormConsultaAlumnos consultaAlumnos = new FormConsultaAlumnos(alumnos);
+                consultaAlumnos.ShowDialog();
+            }
+        }
+        #endregion
+
+        #region Eventos Validated
+        private void txtNombre_Validated(object sender, EventArgs e)
+        {
             string nombre = txtNombre.Text;
+            if (Validaciones.ValidaBlanco(nombre))
+            {
+                errorProvider1.SetError(txtNombre, "Agregue nombre.");
+            }
+        }
+
+        private void txtDomicilio_Validated(object sender, EventArgs e)
+        {
+            string domicilio = txtDomicilio.Text;
+            if (Validaciones.ValidaBlanco(domicilio))
+            {
+                errorProvider1.SetError(txtDomicilio, "Agregue Domicilio.");
+            }
+            else
+            {
+                errorProvider1.SetError(txtDomicilio, "");
+            }
+        }
+        #endregion
+
+        #region Eventos KeyPress
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Validaciones.ValidaNombre(e.KeyChar))
+            {
+                errorProvider1.SetError(txtNombre, "");
+                e.Handled = false;
+            }
+            else
+            {
+                errorProvider1.SetError(txtNombre, "Solo letras.");
+                e.Handled = true;
+            }
+            if(e.KeyChar == (char)Keys.Enter)
+            {
+                Guardar();
+                errorProvider1.SetError(txtNombre, "");
+            }
+        }
+
+        private void txtDomicilio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            errorProvider1.SetError(txtDomicilio, "");
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                Guardar();
+                errorProvider1.SetError(txtDomicilio, "");
+            }
+        }
+        
+        private void cmbCarreras_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                Guardar();
+            }
+        }
+        
+        private void numEdad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                Guardar();
+            }
+        }
+        #endregion
+
+        #region Utilidades
+        /// <summary>
+        /// Método para mandar a guardar los datos que el usuario ingresó.
+        /// </summary>
+        private void Guardar()
+        {
+            long numControl = Convert.ToInt64(txtNoControl.Text);
+            string nombre = txtNombre.Text.ToUpper();
             string carrera = cmbCarreras.SelectedItem.ToString();
             int edad = Convert.ToInt32(numEdad.Value);
-            string domicilio = txtDomicilio.Text;
+            string domicilio = txtDomicilio.Text.ToUpper();
 
             if (Validaciones.ValidaBlanco(nombre) || Validaciones.ValidaBlanco(domicilio))
             {
-                if(Validaciones.ValidaBlanco(nombre) && Validaciones.ValidaBlanco(domicilio))
+                if (Validaciones.ValidaBlanco(nombre) && Validaciones.ValidaBlanco(domicilio))
                 {
                     MessageBox.Show("Agregue nombre y domicilio para continuar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     errorProvider1.SetError(txtNombre, "Agregue nombre");
@@ -73,7 +170,7 @@ namespace AltaAlumnos
                     $"\nNombre: {nombre}" +
                     $"\nCarrera: {carrera}" +
                     $"\nEdad: {edad}" +
-                    $"\nDomicilio: {txtDomicilio.Text}", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    $"\nDomicilio: {domicilio}", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (resultado == DialogResult.Yes)
                 {
                     if (alumnos.AgregaAlumno(numControl, nombre, domicilio, carrera, edad))
@@ -81,6 +178,15 @@ namespace AltaAlumnos
                         MessageBox.Show($"El alumno {nombre} ha sido agregado", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Limpiar();
                         txtNoControl.Text = alumnos.CalculaNumControl();
+                        cmbCarreras.SelectedIndex = 0;
+                        if (cmbCarreras.Items.Count == 1)
+                        {
+                            txtNombre.Focus();
+                        }
+                        else
+                        {
+                            cmbCarreras.Focus();
+                        }
                     }
                     else
                     {
@@ -90,60 +196,17 @@ namespace AltaAlumnos
             }
         }
 
-        private void formPrincipal_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Método que vuelve al estado original los componentes.
+        /// </summary>
+        private void Limpiar()
         {
-            txtNoControl.Text = alumnos.CalculaNumControl();
-            Carrera[] carreras = this.carreras.CarrerasActivas();
-            cmbCarreras.Items.AddRange(carreras);
+            txtNombre.Text = "";
+            txtDomicilio.Text = "";
+            numEdad.Value = 16;
             cmbCarreras.SelectedIndex = 0;
-            
         }
 
-        private void btnConsultar_Click(object sender, EventArgs e)
-        {
-            FormConsultaAlumnos consulta = new FormConsultaAlumnos(alumnos);
-            consulta.ShowDialog();
-        }
-
-        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (Validaciones.ValidaNombre(e.KeyChar))
-            {
-                errorProvider1.SetError(txtNombre, "");
-                e.Handled = false;
-            }
-            else
-            {
-                errorProvider1.SetError(txtNombre, "Solo letras.");
-                e.Handled = true;
-            }
-        }
-
-        private void txtNombre_Validated(object sender, EventArgs e)
-        {
-            string nombre = txtNombre.Text;
-            if (Validaciones.ValidaBlanco(nombre))
-            {
-                errorProvider1.SetError(txtNombre, "Agregue nombre.");
-            }
-        }
-
-        private void txtDomicilio_Validated(object sender, EventArgs e)
-        {
-            string domicilio = txtDomicilio.Text;
-            if (Validaciones.ValidaBlanco(domicilio))
-            {
-                errorProvider1.SetError(txtDomicilio, "Agregue Domicilio.");
-            }
-            else
-            {
-                errorProvider1.SetError(txtDomicilio, "");
-            }
-        }
-
-        private void txtDomicilio_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            errorProvider1.SetError(txtDomicilio, "");
-        }
+        #endregion
     }
 }

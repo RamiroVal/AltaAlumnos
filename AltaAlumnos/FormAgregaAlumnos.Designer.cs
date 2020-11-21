@@ -76,6 +76,7 @@
             this.cmbCarreras.Size = new System.Drawing.Size(121, 24);
             this.cmbCarreras.TabIndex = 0;
             this.cmbCarreras.Tag = "";
+            this.cmbCarreras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbCarreras_KeyPress);
             // 
             // lblCarrera
             // 
@@ -156,6 +157,7 @@
             0,
             0,
             0});
+            this.numEdad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numEdad_KeyPress);
             // 
             // btnGuardar
             // 
@@ -199,6 +201,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(542, 306);
             this.Controls.Add(this.btnConsultar);
@@ -215,6 +218,7 @@
             this.Controls.Add(this.txtNoControl);
             this.Controls.Add(this.lblNoControl);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "formPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agrega Alumno";
