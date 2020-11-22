@@ -40,7 +40,7 @@ namespace AltaAlumnos
         {
             if (!carreras.pHayActivas)
             {
-                MessageBox.Show("No hay materias activas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No hay Carreras activas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -85,6 +85,19 @@ namespace AltaAlumnos
             else
             {
                 MessageBox.Show("No se han agregado Carreras.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void individualToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (alumnos.pHayAlumnos)
+            {
+                FormConsultaIndividualA con = new FormConsultaIndividualA(alumnos, carreras);
+                con.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No se han agregado Alumnos.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

@@ -82,6 +82,68 @@ namespace AltaAlumnos
             }
             return alumnos;
         }
+
+        /// <summary>
+        /// Método que devuelve todas las calves y nombres de los alumnos.
+        /// </summary>
+        /// <returns>Arreglo string con claves y nombres.</returns>
+        public string[] ClavesNombres()
+        {
+            string[] datos = new string[dicAlumnos.Count * 2];
+            int i = 0;
+            foreach(KeyValuePair<long,Alumno> item in dicAlumnos)
+            {
+                datos[i] = item.Key.ToString();
+                i++;
+                datos[i] = item.Value.pNombre;
+                i++;
+            }
+            return datos;
+        }
+
+        /// <summary>
+        /// Método que devuelve los datos del alumno por su nombre.
+        /// </summary>
+        /// <param name="nombre">Nombre del alumno.</param>
+        /// <param name="a">Objeto AdministraCarreras para saber nombre de la carrera.</param>
+        /// <returns>Datos del alumno.</returns>
+        public string[] DatosAlumnoNombre(string nombre, AdministraCarreras a)
+        {
+            string[] alumno = new string[5];
+            foreach (KeyValuePair<long, Alumno> item in dicAlumnos)
+            {
+                if (item.Value.pNombre == nombre)
+                {
+                    alumno[0] = item.Key.ToString();
+                    alumno[1] = item.Value.pNombre;
+                    alumno[2] = a.NombreCarrera(item.Value.pCarrera);
+                    alumno[3] = item.Value.pDomicilio;
+                    alumno[4] = item.Value.pEdad.ToString();
+                }
+            }
+            return alumno;
+        }
+
+        /// <summary>
+        /// Devuelve alumno por su clave.
+        /// </summary>
+        /// <param name="clave">Clave del alumno.</param>
+        /// <returns>Alumno.</returns>
+        public Alumno AlumnoClave(long clave) => dicAlumnos[clave];
+
+        /// <summary>
+        /// Devuelve true en caso de estar la clave del alumno.
+        /// </summary>
+        /// <param name="clave">Clave del alumno.</param>
+        /// <returns>true = esta.</returns>
+        public bool EstaClave(long clave)
+        {
+            if (dicAlumnos.ContainsKey(clave))
+            {
+                return true;
+            }
+            return false;
+        }
         #endregion
 
         /// <summary>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AltaAlumnos
 {
-    class Alumno
+    public class Alumno
     {
         private string nombre;
         private string domicilio;
