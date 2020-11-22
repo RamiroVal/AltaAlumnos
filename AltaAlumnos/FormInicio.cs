@@ -71,7 +71,20 @@ namespace AltaAlumnos
             }
             else
             {
-                MessageBox.Show("No se han agregado Materias.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No se han agregado Carreras.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void individualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (carreras.pHayCarreras)
+            {
+                FormConsultaIndividualC c = new FormConsultaIndividualC(carreras);
+                c.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No se han agregado Carreras.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

@@ -68,6 +68,8 @@
             // 
             // cmbCarreras
             // 
+            this.cmbCarreras.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCarreras.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbCarreras.BackColor = System.Drawing.Color.White;
             this.cmbCarreras.FormattingEnabled = true;
             this.cmbCarreras.Location = new System.Drawing.Point(387, 38);

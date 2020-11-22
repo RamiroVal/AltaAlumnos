@@ -140,64 +140,71 @@ namespace AltaAlumnos
         /// </summary>
         private void Guardar()
         {
-            long numControl = Convert.ToInt64(txtNoControl.Text);
-            string nombre = txtNombre.Text.ToUpper();
-            Carrera a = cmbCarreras.SelectedItem as Carrera;
-            long carrera = a.pClave;
-            int edad = Convert.ToInt32(numEdad.Value);
-            string domicilio = txtDomicilio.Text.ToUpper();
+            try
+            {
+                long numControl = Convert.ToInt64(txtNoControl.Text);
+                string nombre = txtNombre.Text.ToUpper();
+                Carrera a = cmbCarreras.SelectedItem as Carrera;
+                long carrera = a.pClave;
+                int edad = Convert.ToInt32(numEdad.Value);
+                string domicilio = txtDomicilio.Text.ToUpper();
 
-            if (Validaciones.ValidaBlanco(nombre) || Validaciones.ValidaBlanco(domicilio))
-            {
-                if (Validaciones.ValidaBlanco(nombre) && Validaciones.ValidaBlanco(domicilio))
+                if (Validaciones.ValidaBlanco(nombre) || Validaciones.ValidaBlanco(domicilio))
                 {
-                    MessageBox.Show("Agregue nombre y domicilio para continuar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    errorProvider1.SetError(txtNombre, "Agregue nombre");
-                    errorProvider1.SetError(txtDomicilio, "Agregue domicilio");
-                }
-                else
-                {
-                    if (Validaciones.ValidaBlanco(nombre))
+                    if (Validaciones.ValidaBlanco(nombre) && Validaciones.ValidaBlanco(domicilio))
                     {
-                        MessageBox.Show("Agregue nombre para continuar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Agregue nombre y domicilio para continuar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         errorProvider1.SetError(txtNombre, "Agregue nombre");
-                    }
-                    if (Validaciones.ValidaBlanco(domicilio))
-                    {
-                        MessageBox.Show("Agregue domicilio para continuar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         errorProvider1.SetError(txtDomicilio, "Agregue domicilio");
-                    }
-                }
-            }
-            else
-            {
-                DialogResult resultado = MessageBox.Show("Se agregará al alumno:" +
-                    $"\nNombre: {nombre}" +
-                    $"\nCarrera: {carrera}" +
-                    $"\nEdad: {edad}" +
-                    $"\nDomicilio: {domicilio}", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (resultado == DialogResult.Yes)
-                {
-                    if (alumnos.AgregaAlumno(numControl, nombre, domicilio, carrera, edad))
-                    {
-                        MessageBox.Show($"El alumno {nombre} ha sido agregado", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Limpiar();
-                        txtNoControl.Text = alumnos.CalculaNumControl();
-                        cmbCarreras.SelectedIndex = 0;
-                        if (cmbCarreras.Items.Count == 1)
-                        {
-                            txtNombre.Focus();
-                        }
-                        else
-                        {
-                            cmbCarreras.Focus();
-                        }
                     }
                     else
                     {
-                        MessageBox.Show($"No se ha podido añadir al alumno {nombre}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (Validaciones.ValidaBlanco(nombre))
+                        {
+                            MessageBox.Show("Agregue nombre para continuar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            errorProvider1.SetError(txtNombre, "Agregue nombre");
+                        }
+                        if (Validaciones.ValidaBlanco(domicilio))
+                        {
+                            MessageBox.Show("Agregue domicilio para continuar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            errorProvider1.SetError(txtDomicilio, "Agregue domicilio");
+                        }
                     }
                 }
+                else
+                {
+                    DialogResult resultado = MessageBox.Show("Se agregará al alumno:" +
+                        $"\nNombre: {nombre}" +
+                        $"\nCarrera: {carrera}" +
+                        $"\nEdad: {edad}" +
+                        $"\nDomicilio: {domicilio}", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        if (alumnos.AgregaAlumno(numControl, nombre, domicilio, carrera, edad))
+                        {
+                            MessageBox.Show($"El alumno {nombre} ha sido agregado", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Limpiar();
+                            txtNoControl.Text = alumnos.CalculaNumControl();
+                            cmbCarreras.SelectedIndex = 0;
+                            if (cmbCarreras.Items.Count == 1)
+                            {
+                                txtNombre.Focus();
+                            }
+                            else
+                            {
+                                cmbCarreras.Focus();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show($"No se ha podido añadir al alumno {nombre}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }catch(NullReferenceException ex)
+            {
+                MessageBox.Show("Seleccione Carrera válida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmbCarreras.SelectedIndex = 0;
             }
         }
 
