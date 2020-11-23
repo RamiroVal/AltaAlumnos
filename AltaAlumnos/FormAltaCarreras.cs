@@ -233,8 +233,26 @@ namespace AltaAlumnos
             txtClave.Clear();
             txtNombre.Clear();
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() == typeof(FormAltaCarreras))
+            {
+                FormAltaCarreras a = (FormAltaCarreras)obj;
+                if (a.Text == Text)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
         #endregion
-
-
     }
 }

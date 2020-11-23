@@ -30,5 +30,25 @@ namespace AltaAlumnos
                 gridAlumnos.Rows.Add(alumnos[i, 0], alumnos[i, 1], alumnos[i, 2], alumnos[i, 3], alumnos[i, 4]);
             }
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() == typeof(FormConsultaAlumnos))
+            {
+                FormConsultaAlumnos a = (FormConsultaAlumnos)obj;
+                if (a.Text == Text)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

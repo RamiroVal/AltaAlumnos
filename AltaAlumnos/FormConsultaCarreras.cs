@@ -37,5 +37,25 @@ namespace AltaAlumnos
                 listView1.Items.Add(lista);
             }
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() == typeof(FormConsultaCarreras))
+            {
+                FormConsultaCarreras a = (FormConsultaCarreras)obj;
+                if (a.Text == Text)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

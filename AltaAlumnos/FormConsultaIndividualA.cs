@@ -69,6 +69,7 @@ namespace AltaAlumnos
             }catch(FormatException)
             {
                 string nombre = txtDato.Text.ToUpper();
+                txtDato.Text = nombre;
                 string[] datos = alumnos.DatosAlumnoNombre(nombre, carreras);
                 if (datos[0] == null)
                 {
@@ -91,6 +92,26 @@ namespace AltaAlumnos
             else
             {
                 errorProvider1.SetError(txtDato, "");
+            }
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() == typeof(FormConsultaIndividualA))
+            {
+                FormConsultaIndividualA a = (FormConsultaIndividualA)obj;
+                if (a.Text == Text)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
             }
         }
     }

@@ -50,5 +50,25 @@ namespace AltaAlumnos
                 cmbNombre.SelectedIndex = 0;
             }
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() == typeof(FormConsultaIndividualC))
+            {
+                FormConsultaIndividualC a = (FormConsultaIndividualC)obj;
+                if (a.Text == Text)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
