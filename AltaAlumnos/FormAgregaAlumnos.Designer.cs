@@ -43,6 +43,7 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numEdad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -50,21 +51,23 @@
             // lblNoControl
             // 
             this.lblNoControl.AutoSize = true;
-            this.lblNoControl.Location = new System.Drawing.Point(25, 41);
+            this.lblNoControl.Location = new System.Drawing.Point(19, 33);
+            this.lblNoControl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNoControl.Name = "lblNoControl";
-            this.lblNoControl.Size = new System.Drawing.Size(79, 17);
+            this.lblNoControl.Size = new System.Drawing.Size(60, 13);
             this.lblNoControl.TabIndex = 0;
             this.lblNoControl.Text = "No. Control";
             // 
             // txtNoControl
             // 
             this.txtNoControl.BackColor = System.Drawing.Color.White;
-            this.txtNoControl.Location = new System.Drawing.Point(130, 38);
-            this.txtNoControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNoControl.Location = new System.Drawing.Point(98, 31);
+            this.txtNoControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNoControl.Name = "txtNoControl";
             this.txtNoControl.ReadOnly = true;
-            this.txtNoControl.Size = new System.Drawing.Size(100, 22);
+            this.txtNoControl.Size = new System.Drawing.Size(76, 20);
             this.txtNoControl.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.txtNoControl, "Número de Control");
             // 
             // cmbCarreras
             // 
@@ -72,74 +75,81 @@
             this.cmbCarreras.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbCarreras.BackColor = System.Drawing.Color.White;
             this.cmbCarreras.FormattingEnabled = true;
-            this.cmbCarreras.Location = new System.Drawing.Point(387, 38);
-            this.cmbCarreras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbCarreras.Location = new System.Drawing.Point(290, 31);
+            this.cmbCarreras.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbCarreras.Name = "cmbCarreras";
-            this.cmbCarreras.Size = new System.Drawing.Size(121, 24);
+            this.cmbCarreras.Size = new System.Drawing.Size(92, 21);
             this.cmbCarreras.TabIndex = 0;
             this.cmbCarreras.Tag = "";
+            this.toolTip1.SetToolTip(this.cmbCarreras, "Nombre de la Carrera");
             this.cmbCarreras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbCarreras_KeyPress);
             // 
             // lblCarrera
             // 
             this.lblCarrera.AutoSize = true;
-            this.lblCarrera.Location = new System.Drawing.Point(309, 41);
+            this.lblCarrera.Location = new System.Drawing.Point(232, 33);
+            this.lblCarrera.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCarrera.Name = "lblCarrera";
-            this.lblCarrera.Size = new System.Drawing.Size(56, 17);
+            this.lblCarrera.Size = new System.Drawing.Size(41, 13);
             this.lblCarrera.TabIndex = 4;
             this.lblCarrera.Text = "Carrera";
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(25, 112);
+            this.lblNombre.Location = new System.Drawing.Point(19, 91);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(58, 17);
+            this.lblNombre.Size = new System.Drawing.Size(44, 13);
             this.lblNombre.TabIndex = 5;
             this.lblNombre.Text = "Nombre";
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(130, 110);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNombre.Location = new System.Drawing.Point(98, 89);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(377, 22);
+            this.txtNombre.Size = new System.Drawing.Size(284, 20);
             this.txtNombre.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.txtNombre, "Nombre del Alumno");
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             this.txtNombre.Validated += new System.EventHandler(this.txtNombre_Validated);
             // 
             // txtDomicilio
             // 
-            this.txtDomicilio.Location = new System.Drawing.Point(130, 151);
-            this.txtDomicilio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDomicilio.Location = new System.Drawing.Point(98, 123);
+            this.txtDomicilio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDomicilio.Name = "txtDomicilio";
-            this.txtDomicilio.Size = new System.Drawing.Size(377, 22);
+            this.txtDomicilio.Size = new System.Drawing.Size(284, 20);
             this.txtDomicilio.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.txtDomicilio, "Domicilio del Alumno");
             this.txtDomicilio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDomicilio_KeyPress);
             this.txtDomicilio.Validated += new System.EventHandler(this.txtDomicilio_Validated);
             // 
             // lblDomicilio
             // 
             this.lblDomicilio.AutoSize = true;
-            this.lblDomicilio.Location = new System.Drawing.Point(25, 154);
+            this.lblDomicilio.Location = new System.Drawing.Point(19, 125);
+            this.lblDomicilio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDomicilio.Name = "lblDomicilio";
-            this.lblDomicilio.Size = new System.Drawing.Size(64, 17);
+            this.lblDomicilio.Size = new System.Drawing.Size(49, 13);
             this.lblDomicilio.TabIndex = 8;
             this.lblDomicilio.Text = "Domicilio";
             // 
             // lblEdad
             // 
             this.lblEdad.AutoSize = true;
-            this.lblEdad.Location = new System.Drawing.Point(25, 203);
+            this.lblEdad.Location = new System.Drawing.Point(19, 165);
+            this.lblEdad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEdad.Name = "lblEdad";
-            this.lblEdad.Size = new System.Drawing.Size(41, 17);
+            this.lblEdad.Size = new System.Drawing.Size(32, 13);
             this.lblEdad.TabIndex = 9;
             this.lblEdad.Text = "Edad";
             // 
             // numEdad
             // 
-            this.numEdad.Location = new System.Drawing.Point(130, 201);
-            this.numEdad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numEdad.Location = new System.Drawing.Point(98, 163);
+            this.numEdad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.numEdad.Maximum = new decimal(new int[] {
             50,
             0,
@@ -151,9 +161,10 @@
             0,
             0});
             this.numEdad.Name = "numEdad";
-            this.numEdad.Size = new System.Drawing.Size(63, 22);
+            this.numEdad.Size = new System.Drawing.Size(47, 20);
             this.numEdad.TabIndex = 3;
             this.numEdad.Tag = "";
+            this.toolTip1.SetToolTip(this.numEdad, "Edad del Alumno");
             this.numEdad.Value = new decimal(new int[] {
             16,
             0,
@@ -163,34 +174,37 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(63, 244);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGuardar.Location = new System.Drawing.Point(47, 198);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(99, 34);
+            this.btnGuardar.Size = new System.Drawing.Size(74, 28);
             this.btnGuardar.TabIndex = 4;
             this.btnGuardar.Text = "Guardar";
+            this.toolTip1.SetToolTip(this.btnGuardar, "Guardar Alumno");
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(215, 244);
-            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLimpiar.Location = new System.Drawing.Point(161, 198);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(99, 34);
+            this.btnLimpiar.Size = new System.Drawing.Size(74, 28);
             this.btnLimpiar.TabIndex = 5;
             this.btnLimpiar.Text = "Limpiar";
+            this.toolTip1.SetToolTip(this.btnLimpiar, "Limpia Campos");
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(367, 244);
-            this.btnConsultar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnConsultar.Location = new System.Drawing.Point(275, 198);
+            this.btnConsultar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(99, 34);
+            this.btnConsultar.Size = new System.Drawing.Size(74, 28);
             this.btnConsultar.TabIndex = 6;
             this.btnConsultar.Text = "Consultar";
+            this.toolTip1.SetToolTip(this.btnConsultar, "Consulta Alumnos");
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
@@ -201,11 +215,11 @@
             // 
             // formPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(542, 306);
+            this.ClientSize = new System.Drawing.Size(406, 249);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnGuardar);
@@ -219,7 +233,7 @@
             this.Controls.Add(this.cmbCarreras);
             this.Controls.Add(this.txtNoControl);
             this.Controls.Add(this.lblNoControl);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "formPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -248,6 +262,7 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

@@ -39,6 +39,7 @@
             this.edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtDato = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -46,20 +47,22 @@
             // lblDato
             // 
             this.lblDato.AutoSize = true;
-            this.lblDato.Location = new System.Drawing.Point(32, 36);
+            this.lblDato.Location = new System.Drawing.Point(24, 29);
+            this.lblDato.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDato.Name = "lblDato";
-            this.lblDato.Size = new System.Drawing.Size(145, 17);
+            this.lblDato.Size = new System.Drawing.Size(109, 13);
             this.lblDato.TabIndex = 0;
             this.lblDato.Text = "Nombre o No. Control";
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(588, 20);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBuscar.Location = new System.Drawing.Point(441, 16);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(616, 49);
+            this.btnBuscar.Size = new System.Drawing.Size(462, 40);
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "Buscar";
+            this.toolTip1.SetToolTip(this.btnBuscar, "Buscar Alumno");
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -72,13 +75,13 @@
             this.carrera,
             this.domicilio,
             this.edad});
-            this.dataGridView1.Location = new System.Drawing.Point(36, 111);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView1.Location = new System.Drawing.Point(27, 90);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1168, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(876, 122);
             this.dataGridView1.TabIndex = 3;
             // 
             // clave
@@ -125,11 +128,12 @@
             // 
             this.txtDato.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtDato.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtDato.Location = new System.Drawing.Point(200, 32);
-            this.txtDato.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDato.Location = new System.Drawing.Point(150, 26);
+            this.txtDato.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDato.Name = "txtDato";
-            this.txtDato.Size = new System.Drawing.Size(333, 22);
+            this.txtDato.Size = new System.Drawing.Size(251, 20);
             this.txtDato.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.txtDato, "Ingrese Número de control\r\no Nombre del Alumno");
             this.txtDato.Validated += new System.EventHandler(this.txtDato_Validated);
             // 
             // errorProvider1
@@ -139,15 +143,15 @@
             // 
             // FormConsultaIndividualA
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1237, 272);
+            this.ClientSize = new System.Drawing.Size(928, 221);
             this.Controls.Add(this.txtDato);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblDato);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "FormConsultaIndividualA";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -172,5 +176,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn carrera;
         private System.Windows.Forms.DataGridViewTextBoxColumn domicilio;
         private System.Windows.Forms.DataGridViewTextBoxColumn edad;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -175,7 +175,7 @@ namespace AltaAlumnos
                 {
                     DialogResult resultado = MessageBox.Show("Se agregará al alumno:" +
                         $"\nNombre: {nombre}" +
-                        $"\nCarrera: {carrera}" +
+                        $"\nCarrera: {carreras.NombreCarrera(carrera)}" +
                         $"\nEdad: {edad}" +
                         $"\nDomicilio: {domicilio}", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (resultado == DialogResult.Yes)
