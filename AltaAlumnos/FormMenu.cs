@@ -154,6 +154,7 @@ namespace AltaAlumnos
             if (formActivo != null)
             {
                 formActivo.Close();
+                lblTitulo.Text = "HOME";
             }
         }
 
