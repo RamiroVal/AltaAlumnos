@@ -50,10 +50,7 @@ namespace AltaAlumnos
         /// Método sobreescrito ToString()
         /// </summary>
         /// <returns>Nombre de la carrera</returns>
-        public override string ToString()
-        {
-            return nombre;
-        }
+        public override string ToString() => nombre;
         #endregion
 
         #region Propiedades

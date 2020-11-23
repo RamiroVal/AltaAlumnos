@@ -201,7 +201,7 @@ namespace AltaAlumnos
                         }
                     }
                 }
-            }catch(NullReferenceException ex)
+            }catch(NullReferenceException)
             {
                 MessageBox.Show("Seleccione Carrera válida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cmbCarreras.SelectedIndex = 0;

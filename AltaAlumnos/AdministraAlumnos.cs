@@ -26,6 +26,7 @@ namespace AltaAlumnos
             {
                 Alumno alumno = new Alumno(nombre, domicilio, carrera, edad);
                 dicAlumnos.Add(numControl, alumno);
+                AdministraAlumnos.numControl++;
                 return true;
             }catch(ArgumentException e)
             {
@@ -40,7 +41,6 @@ namespace AltaAlumnos
         /// <returns>Número de control</returns>
         public string CalculaNumControl()
         {
-            numControl++;
             int año = DateTime.Now.Year;
             string numeroControl = año.ToString().Substring(2, 2) + "17" + numControl.ToString("D4");
             return numeroControl;

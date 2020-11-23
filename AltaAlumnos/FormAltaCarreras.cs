@@ -218,7 +218,7 @@ namespace AltaAlumnos
                     }
                 }
             }
-            catch (FormatException ex)
+            catch (FormatException)
             {
                 MessageBox.Show("Ingrese clave", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 errorProvider1.SetError(txtClave, "Ingrese clave");

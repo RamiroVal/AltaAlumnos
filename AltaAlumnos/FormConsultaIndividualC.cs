@@ -44,7 +44,7 @@ namespace AltaAlumnos
                     datos.SubItems.Add("Inactiva");
                 }
                 listView1.Items.Add(datos);
-            }catch(NullReferenceException ex)
+            }catch(NullReferenceException)
             {
                 MessageBox.Show("Seleccione una Carrera válida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cmbNombre.SelectedIndex = 0;

@@ -66,7 +66,7 @@ namespace AltaAlumnos
                     return false;
                 }
 
-            }catch(FormatException ex)
+            }catch(FormatException)
             {
                 string nombre = txtDato.Text.ToUpper();
                 string[] datos = alumnos.DatosAlumnoNombre(nombre, carreras);
@@ -80,7 +80,6 @@ namespace AltaAlumnos
                     return true;
                 }
             }
-            return false;
         }
 
         private void txtDato_Validated(object sender, EventArgs e)
